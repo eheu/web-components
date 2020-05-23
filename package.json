@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --env.mode development",
+    "serve": "serve build -l 3001",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "onchange \"src/**/*\" -- npm run build"
   },
