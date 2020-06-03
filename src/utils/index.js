@@ -1,1 +1,1 @@
-export * from "./defineCustomElements"
+export * from "./makeComponent"

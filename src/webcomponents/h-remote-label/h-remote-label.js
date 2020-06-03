@@ -1,5 +1,3 @@
-import { defineCustomElement } from "../utils";
-
 export class HRemoteLabel extends HTMLElement {
   constructor() {
     super();
@@ -33,4 +31,4 @@ export class HRemoteLabel extends HTMLElement {
   }
 }
 
-defineCustomElement(HRemoteLabel, "h-remote-label");
+customElements.define("h-remote-label", HRemoteLabel)

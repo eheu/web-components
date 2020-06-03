@@ -20,6 +20,14 @@ const config = ({ mode }) => {
             loader: "babel-loader",
           },
         },
+        {
+          test: /\.css$/i,
+          use: ["to-string-loader", "css-loader"],
+        },
+        {
+          test: /\.html$/i,
+          loader: 'html-loader',
+        },
       ],
     },
     plugins: [
