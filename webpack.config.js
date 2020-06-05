@@ -32,7 +32,7 @@ const config = ({ mode }) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "./src/index.html",
+        template: "./src/main.html",
         inject: "head",
       }),
       new ModuleFederationPlugin({

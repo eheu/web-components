@@ -1,7 +1,10 @@
-* {
-    color: red;
+:host > div {
+    border: 1px solid black;
 }
 
-p {
-    font-size: x-large;
+button {
+    background: green;
+    width: 200px;
+    height: 40px;
 }
+

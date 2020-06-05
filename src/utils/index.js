@@ -1,1 +1,1 @@
-export * from "./makeComponent"
+export * from "./buildShadowRoot"
