@@ -1,8 +1,10 @@
-:host > div {
+:host {
     border: 1px solid black;
+    display: inline-block;
+    width: 250px;
 }
 
-button {
+#button {
     background: green;
     width: 200px;
     height: 40px;

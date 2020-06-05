@@ -1,49 +1,38 @@
 import css from "./h-counter.css";
 import html from "./h-counter.html";
-import { buildShadowRoot } from "../../utils/buildShadowRoot";
+import { buildShadowRoot } from "../../utils";
 
 export class HCounter extends HTMLElement {
+  #shadowRoot = null;
+
   constructor() {
     super();
-    buildShadowRoot(this, css, html, this.#slots);
-  }
-  
-  static get observedAttributes() {
-    return ["count"]
+    this.#shadowRoot = buildShadowRoot(this, css, html);
+    this.#shadowRoot.querySelector("#count").innerHTML = this.count;
+    this.#shadowRoot
+      .querySelector("#button")
+      .addEventListener("click", () => this.count++);
   }
 
-  #count = 0;
+  static get observedAttributes() {
+    return ["count"];
+  }
 
   get count() {
-    return this.#count;
+    return Number.parseInt(this.getAttribute("count"));
   }
 
   set count(value) {
-    this.#count = value;
-    this.#slots.count.innerHTML = newValue;
+    if (!value) {
+      this.removeAttribute("count");
+    } else {
+      this.setAttribute("count", value);
+      this.#shadowRoot.querySelector("#count").innerHTML = value;
+    }
   }
-
-  #slots = {
-    count: (() => {
-      const div = document.createElement("div");
-      div.slot = ""
-      div.innerHTML = this.count;
-      div.slot = "count";
-      return div;
-    })(),
-  };
-
-  connectedCallback() {
-    console.log(this.count)
-    this.shadowRoot.querySelector("button").addEventListener("click", this.count  );
-    console.log(this.count)
-  }
-
-  disconnectedCallback() {}
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log(name, oldValue, newValue);
-    if (name === "count") this.count = newValue;
+    if (name === "count" && oldValue !== newValue) this.count = newValue;
   }
 }
 
