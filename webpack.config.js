@@ -6,12 +6,15 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const config = ({ mode }) => {
   return {
     mode: mode,
+
     entry: "./src/main.js",
+
     output: {
       path: __dirname + "/build/",
       filename: "main.js",
       publicPath: "http://localhost:3001/",
     },
+
     module: {
       rules: [
         {
@@ -36,11 +39,11 @@ const config = ({ mode }) => {
         inject: "head",
       }),
       new ModuleFederationPlugin({
-        name: "app_two",
+        name: "h-webcomponents",
         filename: "remoteEntry.js",
-        library: { type: "var", name: "app_two" },
+        library: { type: "var", name: "h-webcomponents" },
         exposes: {
-          HRemoteLabel: "./src/webcomponents/h-remote-label",
+          HRemoteLabel: "./src/webcomponents/h-counter",
         },
       }),
     ],
