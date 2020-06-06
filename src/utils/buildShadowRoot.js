@@ -5,7 +5,7 @@
  * @param  {string} css
  * @param  {string} html
  */
-export function buildShadowRoot(element, css, html, slots) {
+export function buildShadowRoot(element, css, html) {
   const shadowRoot = element.attachShadow({ mode: "closed" });
   const style = document.createElement("style");
   style.innerHTML = css;

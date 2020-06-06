@@ -10,8 +10,8 @@ export class HCounter extends HTMLElement {
     this.#shadowRoot = buildShadowRoot(this, css, html);
     this.#shadowRoot.querySelector("#count").innerHTML = this.count;
     this.#shadowRoot
-      .querySelector("#button")
-      .addEventListener("click", () => this.count++);
+      .querySelector("button")
+      .addEventListener("click", () => this.count++); 
   }
 
   static get observedAttributes() {
