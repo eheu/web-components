@@ -1,1 +1,1 @@
-import("./webcomponents")
+import("./components");

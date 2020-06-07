@@ -1,8 +1,8 @@
-import css from "./h-counter.css";
-import html from "./h-counter.html";
-import { buildShadowRoot } from "../../utils";
+import css from "./web-counter.css";
+import html from "./web-counter.html";
+import { buildShadowRoot } from "../../../utils";
 
-export class HCounter extends HTMLElement {
+export class WebCounter extends HTMLElement {
   #shadowRoot = null;
 
   constructor() {
@@ -11,7 +11,7 @@ export class HCounter extends HTMLElement {
     this.#shadowRoot.querySelector("#count").innerHTML = this.count;
     this.#shadowRoot
       .querySelector("button")
-      .addEventListener("click", () => this.count++); 
+      .addEventListener("click", () => this.count++);
   }
 
   static get observedAttributes() {
@@ -36,4 +36,4 @@ export class HCounter extends HTMLElement {
   }
 }
 
-customElements.define("h-counter", HCounter);
+customElements.define("web-counter", WebCounter);

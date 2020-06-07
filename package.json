@@ -24,5 +24,8 @@
     "to-string-loader": "^1.1.6",
     "webpack": "^5.0.0-beta.16",
     "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "single-spa-html": "^1.1.2"
   }
 }

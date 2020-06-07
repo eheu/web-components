@@ -1,7 +1,6 @@
-const path = require("path");
-
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const path = require("path");
 
 const config = ({ mode }) => {
   return {
@@ -23,27 +22,31 @@ const config = ({ mode }) => {
             loader: "babel-loader",
           },
         },
+
         {
           test: /\.css$/i,
           use: ["to-string-loader", "css-loader"],
         },
+
         {
           test: /\.html$/i,
-          loader: 'html-loader',
+          loader: "html-loader",
         },
       ],
     },
+
     plugins: [
       new HtmlWebpackPlugin({
         template: "./src/main.html",
         inject: "head",
       }),
+      
       new ModuleFederationPlugin({
-        name: "h-webcomponents",
+        name: "webComponents",
         filename: "remoteEntry.js",
-        library: { type: "var", name: "h-webcomponents" },
+        library: { type: "var", name: "webComponents" },
         exposes: {
-          HRemoteLabel: "./src/webcomponents/h-counter",
+          WebCounter: "./src/components/web/web-counter",
         },
       }),
     ],

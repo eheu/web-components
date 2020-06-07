@@ -1,5 +1,5 @@
 /**
- * Function for attaching to the passed element a shadow DOM root containing the passed css and html strings.
+ * Function for attaching to the passed element a ShadowDOM root containing the provided css style and html markup.
  *
  * @param  {HTMLElement} element
  * @param  {string} css
