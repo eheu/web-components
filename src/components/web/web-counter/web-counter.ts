@@ -1,4 +1,6 @@
+//@ts-ignore
 import css from "./web-counter.css";
+//@ts-ignore
 import html from "./web-counter.html";
 import { buildShadowRoot } from "../../../utils";
 
@@ -26,7 +28,7 @@ export class WebCounter extends HTMLElement {
     if (!value) {
       this.removeAttribute("count");
     } else {
-      this.setAttribute("count", value);
+      this.setAttribute("count", value.toString());
       this.#shadowRoot.querySelector("#count").innerHTML = value;
     }
   }

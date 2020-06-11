@@ -1,11 +1,7 @@
 /**
  * Function for attaching to the passed element a ShadowDOM root containing the provided css style and html markup.
- *
- * @param  {HTMLElement} element
- * @param  {string} css
- * @param  {string} html
  */
-export function buildShadowRoot(element, css, html) {
+export function buildShadowRoot(element: HTMLElement, css: string, html: string) {
   const shadowRoot = element.attachShadow({ mode: "closed" });
   const style = document.createElement("style");
   style.innerHTML = css;

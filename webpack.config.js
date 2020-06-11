@@ -1,12 +1,15 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const path = require("path");
 
 const config = ({ mode }) => {
   return {
     mode: mode,
 
-    entry: "./src/main.js",
+    entry: "./src/main.ts",
+    
+    resolve: {
+      extensions: ['.ts', '.js']
+    },
 
     output: {
       path: __dirname + "/build/",
@@ -17,12 +20,11 @@ const config = ({ mode }) => {
     module: {
       rules: [
         {
-          test: /\.m?js$/,
+          test: /\.m?(ts|js)x?$/,
           use: {
             loader: "babel-loader",
           },
         },
-
         {
           test: /\.css$/i,
           use: ["to-string-loader", "css-loader"],
@@ -40,7 +42,7 @@ const config = ({ mode }) => {
         template: "./src/main.html",
         inject: "head",
       }),
-      
+
       new ModuleFederationPlugin({
         name: "webComponents",
         filename: "remoteEntry.js",
